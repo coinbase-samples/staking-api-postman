@@ -1,0 +1,623 @@
+{
+	"info": {
+		"_postman_id": "6c75ae12-54fa-4cdf-837c-1e89dbd89ef5",
+		"name": "Coinbase Staking API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31873132"
+	},
+	"item": [
+		{
+			"name": "Native ETH Staking Actions",
+			"item": [
+				{
+					"name": "ETH Stake",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"network_id\": \"ethereum-holesky\",\n  \"asset_id\": \"ETH\",\n  \"address_id\": \"\",\n  \"action\": \"stake\",\n  \"options\": {\n    \"mode\": \"native\",\n    \"amount\": \"\" // In Wei\n    //\"withdrawal_address\": \"\",\n    //\"fee_recipient_address\": \"\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.cdp.coinbase.com/platform/v1/stake/build",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cdp",
+								"coinbase",
+								"com"
+							],
+							"path": [
+								"platform",
+								"v1",
+								"stake",
+								"build"
+							]
+						},
+						"description": "Build a new staking operation"
+					},
+					"response": []
+				},
+				{
+					"name": "ETH Unstake",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"network_id\": \"ethereum-holesky\",\n  \"asset_id\": \"ETH\",\n  \"address_id\": \"\",\n  \"action\": \"unstake\",\n  \"options\": {\n    \"mode\": \"native\",\n    \"amount\": \"\", // In Wei\n    // \"validator_pub_keys\": \"\"\n    \"immediate\": \"false\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.cdp.coinbase.com/platform/v1/stake/build",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cdp",
+								"coinbase",
+								"com"
+							],
+							"path": [
+								"platform",
+								"v1",
+								"stake",
+								"build"
+							]
+						},
+						"description": "Build a new staking operation"
+					},
+					"response": []
+				}
+			],
+			"description": "Examples of Native ETH Staking Actions"
+		},
+		{
+			"name": "SOL Staking Actions",
+			"item": [
+				{
+					"name": "SOL Stake",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"network_id\": \"solana-devnet\",\n  \"asset_id\": \"SOL\",\n  \"address_id\": \"\",\n  \"action\": \"stake\",\n  \"options\": {\n    \"amount\": \"\" // In Lamports\n    //\"validator_address\": \"\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.cdp.coinbase.com/platform/v1/stake/build",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cdp",
+								"coinbase",
+								"com"
+							],
+							"path": [
+								"platform",
+								"v1",
+								"stake",
+								"build"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SOL Unstake",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"network_id\": \"solana-devnet\",\n  \"asset_id\": \"SOL\",\n  \"address_id\": \"\",\n  \"action\": \"unstake\",\n  \"options\": {\n    \"amount\": \"\" // In Lamports\n    //\"validator_address\": \"\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.cdp.coinbase.com/platform/v1/stake/build",
+							"protocol": "https",
+							"host": [
+								"api",
+								"cdp",
+								"coinbase",
+								"com"
+							],
+							"path": [
+								"platform",
+								"v1",
+								"stake",
+								"build"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SOL Claim Stake",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"network_id\": \"solana-devnet\",\n  \"asset_id\": \"SOL\",\n  \"address_id\": \"\",\n  \"action\": \"claim_stake\",\n  \"options\": {\n    \"amount\": \"\" // In Lamports\n    //\"validator_address\": \"\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Staking Operation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.cdp.coinbase.com/platform/v1/networks/ethereum-holesky/addresses/{{WALLET_ADDRESS}}/staking_operations/{{STAKING_OPERATION_ID}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"cdp",
+						"coinbase",
+						"com"
+					],
+					"path": [
+						"platform",
+						"v1",
+						"networks",
+						"ethereum-holesky",
+						"addresses",
+						"{{WALLET_ADDRESS}}",
+						"staking_operations",
+						"{{STAKING_OPERATION_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetValidatorById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.cdp.coinbase.com/platform/v1/networks/ethereum-holesky/assets/ETH/validators/{{VALIDATOR_PUBLIC_KEY}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"cdp",
+						"coinbase",
+						"com"
+					],
+					"path": [
+						"platform",
+						"v1",
+						"networks",
+						"ethereum-holesky",
+						"assets",
+						"ETH",
+						"validators",
+						"{{VALIDATOR_PUBLIC_KEY}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Validators",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.cdp.coinbase.com/platform/v1/networks/ethereum-holesky/assets/ETH/validators",
+					"protocol": "https",
+					"host": [
+						"api",
+						"cdp",
+						"coinbase",
+						"com"
+					],
+					"path": [
+						"platform",
+						"v1",
+						"networks",
+						"ethereum-holesky",
+						"assets",
+						"ETH",
+						"validators"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Staking Balances",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.cdp.coinbase.com/platform/v1/networks/ethereum-mainnet/addresses/{{VALIDATOR_PUBLIC_KEY}}/stake/balances?asset_id=ETH&start_time=2025-01-15T02:29:02Z&end_time=2025-01-21T02:29:02Z",
+					"protocol": "https",
+					"host": [
+						"api",
+						"cdp",
+						"coinbase",
+						"com"
+					],
+					"path": [
+						"platform",
+						"v1",
+						"networks",
+						"ethereum-mainnet",
+						"addresses",
+						"{{VALIDATOR_PUBLIC_KEY}}",
+						"stake",
+						"balances"
+					],
+					"query": [
+						{
+							"key": "asset_id",
+							"value": "ETH"
+						},
+						{
+							"key": "start_time",
+							"value": "2025-01-15T02:29:02Z"
+						},
+						{
+							"key": "end_time",
+							"value": "2025-01-21T02:29:02Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Staking Context SOL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"network_id\": \"solana-devnet\",\n    \"asset_id\": \"SOL\",\n    \"address_id\": \"\",\n    \"options\": {}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.cdp.coinbase.com/platform/v1/stake/context",
+					"protocol": "https",
+					"host": [
+						"api",
+						"cdp",
+						"coinbase",
+						"com"
+					],
+					"path": [
+						"platform",
+						"v1",
+						"stake",
+						"context"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Staking Context ETH",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"network_id\": \"ethereum-holesky\",\n    \"asset_id\": \"ETH\",\n    \"address_id\": \"\",\n    \"options\": {\n        \"mode\": \"native\"\n        //\"validator_pub_keys\": \"\" NATIVE ETH ONLY\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.cdp.coinbase.com/platform/v1/stake/context",
+					"protocol": "https",
+					"host": [
+						"api",
+						"cdp",
+						"coinbase",
+						"com"
+					],
+					"path": [
+						"platform",
+						"v1",
+						"stake",
+						"context"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Staking Rewards",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"network_id\": \"ethereum-mainnet\",\n    \"asset_id\": \"ETH\",\n    \"address_ids\": [\n        \"0x80000c1183d11e7b76fdcbe8c8608ec2f02502106644d2d642b50db644ad6c28581fa267aaef856ba8a3ef4e68e939ce\"\n    ],\n    \"start_time\": \"2025-03-01T00:00:00Z\",\n    \"end_time\": \"2025-03-15T00:00:00Z\",\n    \"format\": \"native\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.cdp.coinbase.com/platform/v1/stake/rewards/search",
+					"protocol": "https",
+					"host": [
+						"api",
+						"cdp",
+						"coinbase",
+						"com"
+					],
+					"path": [
+						"platform",
+						"v1",
+						"stake",
+						"rewards",
+						"search"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"// Set up globals",
+					"var navigator = {};",
+					"var window = {};",
+					"var exports = {};",
+					"var module = {exports: {}};",
+					"var process = {env: {}};",
+					"var Buffer = function() {",
+					"    var args = Array.prototype.slice.call(arguments);",
+					"    return require('buffer').Buffer.apply(this, args);",
+					"};",
+					"Buffer.from = function(data, encoding) {",
+					"    if (encoding === 'binary') {",
+					"        var bytes = new Uint8Array(data.length);",
+					"        for (var i = 0; i < data.length; i++) {",
+					"            bytes[i] = data.charCodeAt(i);",
+					"        }",
+					"        return bytes;",
+					"    }",
+					"    return require('buffer').Buffer.from(data, encoding);",
+					"};",
+					"Buffer.prototype.toString = function(encoding) {",
+					"    return require('buffer').Buffer.prototype.toString.call(this, encoding);",
+					"};",
+					"",
+					"// TextEncoder polyfill",
+					"if (typeof TextEncoder === 'undefined') {",
+					"    TextEncoder = function() {};",
+					"    TextEncoder.prototype.encode = function(str) {",
+					"        var utf8 = [];",
+					"        for (var i = 0; i < str.length; i++) {",
+					"            var charcode = str.charCodeAt(i);",
+					"            if (charcode < 0x80) utf8.push(charcode);",
+					"            else if (charcode < 0x800) utf8.push(0xc0 | (charcode >> 6), 0x80 | (charcode & 0x3f));",
+					"            else if (charcode < 0xd800 || charcode >= 0xe000) utf8.push(0xe0 | (charcode >> 12), 0x80 | ((charcode>>6) & 0x3f), 0x80 | (charcode & 0x3f));",
+					"            else {",
+					"                i++;",
+					"                charcode = 0x10000 + (((charcode & 0x3ff)<<10) | (str.charCodeAt(i) & 0x3ff));",
+					"                utf8.push(0xf0 | (charcode>>18), 0x80 | ((charcode>>12) & 0x3f), 0x80 | ((charcode>>6) & 0x3f), 0x80 | (charcode & 0x3f));",
+					"            }",
+					"        }",
+					"        return new Uint8Array(utf8);",
+					"    };",
+					"}",
+					"",
+					"// Utils",
+					"function base64ToUint8Array(base64) {",
+					"    let paddedBase64 = base64;",
+					"    while (paddedBase64.length % 4 !== 0) paddedBase64 += '=';",
+					"    paddedBase64 = paddedBase64.replace(/[^A-Za-z0-9+/=]/g, '');",
+					"    const binString = atob(paddedBase64);",
+					"    const bytes = new Uint8Array(binString.length);",
+					"    for (let i = 0; i < binString.length; i++) bytes[i] = binString.charCodeAt(i);",
+					"    return bytes;",
+					"}",
+					"",
+					"function base64UrlEncode(str) {",
+					"    let base64;",
+					"    if (typeof str === 'string') {",
+					"        base64 = btoa(unescape(encodeURIComponent(str)));",
+					"    } else {",
+					"        let binary = '';",
+					"        let bytes = new Uint8Array(str);",
+					"        for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);",
+					"        base64 = btoa(binary);",
+					"    }",
+					"    return base64.replace(/\\+/g, '-').replace(/\\//g, '_').replace(/=/g, '');",
+					"}",
+					"",
+					"function hexToUint8Array(hexString) {",
+					"    return new Uint8Array(hexString.match(/.{1,2}/g).map(byte => parseInt(byte, 16)));",
+					"}",
+					"",
+					"// Get key and name",
+					"var rawKey = pm.environment.get(\"privateKey\");",
+					"var name = JSON.parse(pm.environment.get(\"name\"));",
+					"var isECKey = typeof rawKey === 'string' && rawKey.includes(\"-----BEGIN EC PRIVATE KEY-----\");",
+					"",
+					"// Always generate a fresh timestamp",
+					"var timestamp = Math.floor(Date.now() / 1000);",
+					"",
+					"// Create header",
+					"var header = {",
+					"    alg: isECKey ? \"ES256\" : \"EdDSA\",",
+					"    typ: \"JWT\",",
+					"    kid: name,",
+					"    nonce: timestamp.toString()",
+					"};",
+					"",
+					"// Create URI string",
+					"var host = pm.request.url.host;",
+					"var path = pm.request.url.path;",
+					"var uri = pm.request.method + \" \" + host.join(\".\") + \"/\" + path.join(\"/\");",
+					"",
+					"// Create payload",
+					"var payload = {",
+					"    iss: \"coinbase-cloud\",",
+					"    nbf: timestamp,",
+					"    exp: timestamp + 120,",
+					"    sub: name,",
+					"    uri",
+					"};",
+					"",
+					"if (isECKey) {",
+					"    // ES256 signing",
+					"    eval(pm.environment.get(\"jsrsasign-js\"));",
+					"    var privateKey = JSON.parse(rawKey);",
+					"    var sHeader = JSON.stringify(header);",
+					"    var sPayload = JSON.stringify(payload);",
+					"    var prvKey = KEYUTIL.getKey(privateKey);",
+					"    var jwt = KJUR.jws.JWS.sign(\"ES256\", sHeader, sPayload, prvKey);",
+					"    pm.environment.set(\"token\", jwt);",
+					"} else {",
+					"    // Ed25519 signing",
+					"    const CryptoJS = require('crypto-js');",
+					"    eval(pm.environment.get(\"noble_ed25519\"));",
+					"    ",
+					"    if (!exports.utils) exports.utils = {};",
+					"    exports.utils.sha512 = async function(data) {",
+					"        const wordArray = CryptoJS.lib.WordArray.create(data);",
+					"        const hash = CryptoJS.SHA512(wordArray);",
+					"        const hexString = hash.toString(CryptoJS.enc.Hex);",
+					"        const result = new Uint8Array(hexString.length / 2);",
+					"        for (let i = 0; i < hexString.length; i += 2) result[i / 2] = parseInt(hexString.substr(i, 2), 16);",
+					"        return result;",
+					"    };",
+					"    ",
+					"    async function signWithEd25519(message, privateKey) {",
+					"        const messageBytes = new TextEncoder().encode(message);",
+					"        const hash = CryptoJS.SHA512(CryptoJS.lib.WordArray.create(new Uint8Array([...messageBytes, ...privateKey])));",
+					"        const hexString = hash.toString(CryptoJS.enc.Hex);",
+					"        const result = new Uint8Array(hexString.length / 2);",
+					"        for (let i = 0; i < hexString.length; i += 2) result[i / 2] = parseInt(hexString.substr(i, 2), 16);",
+					"        return result.slice(0, 64);",
+					"    }",
+					"    ",
+					"    var encodedHeader = base64UrlEncode(JSON.stringify(header));",
+					"    var encodedPayload = base64UrlEncode(JSON.stringify(payload));",
+					"    var message = encodedHeader + \".\" + encodedPayload;",
+					"    ",
+					"    // Use pm.sendRequest to block until async completion",
+					"    pm.sendRequest({",
+					"        url: 'https://postman-echo.com/delay/0.3', // Dummy URL",
+					"        method: 'GET'",
+					"    }, function(err, res) {",
+					"        // This callback will execute after the delay, forcing Postman to wait",
+					"        // Process in synchronous code now",
+					"        (async function() {",
+					"            try {",
+					"                let privateKey = rawKey;",
+					"                ",
+					"                if (typeof privateKey === 'string') {",
+					"                    // Remove quotes if present",
+					"                    if (privateKey.startsWith('\"') && privateKey.endsWith('\"')) {",
+					"                        privateKey = privateKey.substring(1, privateKey.length - 1);",
+					"                    }",
+					"                    ",
+					"                    // Handle URL-safe base64",
+					"                    const standardBase64 = privateKey.replace(/-/g, '+').replace(/_/g, '/');",
+					"                    const privateKeyBytes = base64ToUint8Array(standardBase64);",
+					"                    const keyToUse = privateKeyBytes.length > 32 ? privateKeyBytes.slice(0, 32) : privateKeyBytes;",
+					"                    ",
+					"                    let signatureBytes;",
+					"                    try {",
+					"                        signatureBytes = await exports.sign(new TextEncoder().encode(message), keyToUse);",
+					"                    } catch (signError) {",
+					"                        signatureBytes = await signWithEd25519(message, keyToUse);",
+					"                    }",
+					"                    ",
+					"                    const jwt = message + \".\" + base64UrlEncode(signatureBytes);",
+					"                    pm.environment.set(\"token\", jwt);",
+					"                }",
+					"            } catch (error) {}",
+					"        })();",
+					"    });",
+					"} "
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
