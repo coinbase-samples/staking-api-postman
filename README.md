@@ -8,7 +8,7 @@ allowing developers to easily test out the API endpoints prior to code integrati
 Import both the `Coinbase Staking API.postman_collection.json` and `Ed25519_Keys.postman_environment`
 
 Go to [Coinbase Developer Portal](https://portal.cdp.coinbase.com) and create a new
-API key. By default, the key should be create in the EdDSA format and will be
+API key. By default, the key should be create in the Ed25519 format and will be
 Base64 encoded. The legacy key type (EcDSA) is not supported by this environment.
 
 Paste the Key Name and Key Secret into the corresponding environment variables, ensuring
