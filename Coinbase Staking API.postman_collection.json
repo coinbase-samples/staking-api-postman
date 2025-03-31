@@ -433,6 +433,7 @@
         "exec": [
           "// Set up globals",
           "var exports = {};",
+          "exports.utils = {};",
           "",
           "// TextEncoder polyfill",
           "if (typeof TextEncoder === 'undefined') {",
@@ -511,7 +512,6 @@
           "const CryptoJS = require('crypto-js');",
           "eval(pm.environment.get(\"noble_ed25519\"));",
           "    ",
-          "if (!exports.utils) exports.utils = {};",
           "exports.utils.sha512 = async function(data) {",
           "    const wordArray = CryptoJS.lib.WordArray.create(data);",
           "    const hash = CryptoJS.SHA512(wordArray);",
